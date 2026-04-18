@@ -1,0 +1,53 @@
+@use 'styles/typography' as *;
+
+.button {
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 17px 20px;
+
+  @include tg(base, m);
+
+  white-space: nowrap;
+
+  border: none;
+  border-radius: var(--radius-md);
+
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+}
+
+.primary {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-primary-active);
+  }
+}
+
+.light {
+  color: var(--color-primary);
+  background-color: var(--color-primary-10);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-20);
+  }
+}
+
+.fullwidth {
+  width: 100%;
+}

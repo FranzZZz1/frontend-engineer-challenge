@@ -1,0 +1,13 @@
+@use 'breakpoints' as *;
+@use 'sass:map';
+@use 'sass:meta';
+
+@mixin screen-size($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media #{meta.inspect(map.get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn "No value could be retrieved from `#{$breakpoint}`. Available breakpoints are: #{map.keys($breakpoints)}.";
+  }
+}

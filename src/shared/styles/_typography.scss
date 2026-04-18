@@ -1,0 +1,74 @@
+@use 'sass:meta';
+@use 'sass:map';
+
+@mixin typography-apply($size, $height, $weight, $family) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+}
+
+// Размеры текста (font-size и line-height)
+$font-sizes: (
+  xs: (
+    size: 12px,
+    height: 16px,
+  ),
+  sm: (
+    size: 13px,
+    height: 20px,
+  ),
+  base: (
+    size: 14px,
+    height: 22px,
+  ),
+  lg: (
+    size: 15px,
+    height: 24px,
+  ),
+  xl: (
+    size: 20px,
+    height: 28px,
+  ),
+  2xl: (
+    size: 24px,
+    height: 30px,
+  ),
+  3xl: (
+    size: 32px,
+    height: 30px,
+  ),
+);
+
+// Ширина текста
+$font-weights: (
+  t: 300,
+  r: 400,
+  m: 500,
+  sb: 600,
+  b: 700,
+);
+
+// Шрифты
+$font-families: (
+  inter: var(--font-inter),
+);
+
+// Миксин типографии
+@mixin tg($size-key: base, $weight-key: r, $family-key: inter) {
+  $size: map.get($font-sizes, $size-key);
+  $font-size: map.get($size, size);
+  $height: map.get($size, height);
+  $weight: map.get($font-weights, $weight-key);
+  $family: map.get($font-families, $family-key);
+
+  @if not $size {
+    @error "Unknown size: #{$size-key}";
+  }
+
+  @if not $weight-key {
+    @error "Unknown text width: #{$weight-key}";
+  }
+
+  @include typography-apply($font-size, $height, $weight, $family);
+}

@@ -1,0 +1,23 @@
+@use 'styles/auth-form' as *;
+@use 'styles/typography' as *;
+
+.form {
+  @include form-base;
+}
+
+.title {
+  @include form-title(28px);
+}
+
+.fields {
+  @include form-fields;
+}
+
+.forgot__link {
+  display: block;
+
+  @include tg(base);
+
+  color: var(--color-primary);
+  text-align: center;
+}

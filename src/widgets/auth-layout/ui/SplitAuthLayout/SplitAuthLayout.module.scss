@@ -1,0 +1,86 @@
+@use 'styles/mixins' as *;
+
+.root {
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  min-height: 100vh;
+
+  @include screen-size(tablet-small) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.background {
+  background-image: url('../../../../../public/static/images/bubbles.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  @include screen-size(tablet-small) {
+    display: none;
+  }
+}
+
+.form__panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+}
+
+.header {
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-md) 20px 0;
+}
+
+.form__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 400px;
+  padding: 0 var(--spacing-xl);
+
+  @include screen-size(mobile) {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  align-items: center;
+  justify-content: center;
+
+  margin-top: var(--spacing-2xl);
+  padding: 0 var(--spacing-xl) var(--spacing-xl);
+  padding-top: var(--spacing-xl);
+
+  border-top: 1px solid var(--color-border);
+}
+
+.footer__text {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.footer__link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.visual__panel {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-background);
+
+  @include screen-size(tablet-small) {
+    display: none;
+  }
+}

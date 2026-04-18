@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["jest", "@testing-library/jest-dom", "node"],
+    "moduleResolution": "bundler"
+  },
+  "include": ["jest.setup.ts", "src/**/*.test.ts", "src/**/*.test.tsx", "src/**/__tests__/**/*"]
+}
